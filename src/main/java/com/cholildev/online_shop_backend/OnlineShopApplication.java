@@ -1,13 +1,13 @@
-package com.cholildev.readiness_backend;
+package com.cholildev.online_shop_backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ReadinessBackendApplication {
+public class OnlineShopApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ReadinessBackendApplication.class, args);
+		SpringApplication.run(OnlineShopApplication.class, args);
 	}
 
 }
