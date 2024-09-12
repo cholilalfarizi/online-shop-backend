@@ -28,55 +28,47 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @RequestMapping("/customer")
 public class CustomerController {
-    
+
     private final CustomersService customersService;
 
     @GetMapping
     public ResponseEntity<ResponseBodyPaginationDTO> getCustomerList(
-        @RequestParam(required = false) String name,
-        @RequestParam(required = false) Boolean isActive,
-        @RequestParam(defaultValue = "1" ,required = false) Integer pageNumber,
-        @RequestParam(defaultValue = "10" ,required = false) Integer pageSize,
-        @RequestParam(defaultValue = "customerId" ,required = false) String sortBy
-    ){
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) Boolean isActive,
+            @RequestParam(defaultValue = "1", required = false) Integer pageNumber,
+            @RequestParam(defaultValue = "10", required = false) Integer pageSize,
+            @RequestParam(defaultValue = "customerId", required = false) String sortBy) {
         CustomerListRequestDTO requestDTO = new CustomerListRequestDTO(name, isActive);
         PageRequest pageRequest = new PageRequest(sortBy, pageSize, pageNumber);
 
         return customersService.getCustomerList(requestDTO, pageRequest.getPage(sortBy));
     }
 
-    @PostMapping(
-        consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE},
-        produces = MediaType.APPLICATION_JSON_VALUE
-    )
+    @PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE,
+            MediaType.MULTIPART_FORM_DATA_VALUE }, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<MessageResponseDTO> addCustomer(
-        @RequestPart(value = "request") CustomerAddRequestDTO request,
-        @RequestPart(value = "file", required = false) MultipartFile proFilePic
-    ){
+            @RequestPart(value = "request") CustomerAddRequestDTO request,
+            @RequestPart(value = "file", required = false) MultipartFile proFilePic) {
         return customersService.addCustomer(request, proFilePic);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ResponseBodyDTO> getCustomerDetail(@PathVariable Long id){
+    public ResponseEntity<ResponseBodyDTO> getCustomerDetail(@PathVariable Long id) {
         return customersService.getCustomerDetail(id);
     }
 
-    @PutMapping(
-        path = "/{id}",
-        consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE},
-        produces = MediaType.APPLICATION_JSON_VALUE
-    )
+    @PutMapping(path = "/{id}", consumes = { MediaType.APPLICATION_JSON_VALUE,
+            MediaType.MULTIPART_FORM_DATA_VALUE }, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<MessageResponseDTO> editCustomer(
-        @RequestPart(value = "request") CustomerAddRequestDTO request,
-        @RequestPart(value = "file", required = false) MultipartFile proFilePic,
-        @PathVariable Long id
-    ){
+            @RequestPart(value = "request") CustomerAddRequestDTO request,
+            @RequestPart(value = "file", required = false) MultipartFile proFilePic,
+            @PathVariable Long id) {
         return customersService.editCustomer(request, proFilePic, id);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<MessageResponseDTO> deleteCustomer(@PathVariable Long id){
+    public ResponseEntity<MessageResponseDTO> deleteCustomer(@PathVariable Long id) {
         return customersService.deleteCustomer(id);
     }
 
-} 
+}
