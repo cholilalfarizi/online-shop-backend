@@ -9,5 +9,4 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CustomerListRequestDTO {
     private String name;
-    private Boolean isActive;
 }

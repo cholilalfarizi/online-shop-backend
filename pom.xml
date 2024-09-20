@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cholildev</groupId>
-	<artifactId>readiness-backend</artifactId>
+	<artifactId>online-shop-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>readiness-backend</name>
+	<name>online-shop-backend</name>
 	<description>backend for readiness</description>
 	<url/>
 	<licenses>
@@ -77,6 +77,26 @@
 			<groupId>io.minio</groupId>
 			<artifactId>minio</artifactId>
 			<version>8.5.12</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>7.0.0</version>
+		</dependency>
+		<dependency>
+		<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-fonts</artifactId>
+			<version>7.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-functions</artifactId>
+			<version>7.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-pdf</artifactId>
+			<version>7.0.0</version> <!-- Sesuaikan dengan versi JasperReports yang digunakan -->
 		</dependency>
 	</dependencies>
 

@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cholildev.online_shop_backend.dto.request.OrderListRequestDTO;
-import com.cholildev.online_shop_backend.dto.request.OrderSaveRequestDTO;
 import com.cholildev.online_shop_backend.dto.request.OrderSaveRequestDTO;
 import com.cholildev.online_shop_backend.dto.request.PageRequest;
 import com.cholildev.online_shop_backend.dto.response.MessageResponseDTO;
@@ -35,7 +33,7 @@ public class OrderController {
             @RequestParam(required = false) String keyword,
             @RequestParam(defaultValue = "1", required = false) Integer pageNumber,
             @RequestParam(defaultValue = "10", required = false) Integer pageSize,
-            @RequestParam(defaultValue = "orderId", required = false) String sortBy) {
+            @RequestParam(defaultValue = "orderId,asc", required = false) String sortBy) {
         PageRequest pageRequest = new PageRequest(sortBy, pageSize, pageNumber);
 
         return orderService.getOrderList(keyword, pageRequest.getPage(sortBy));

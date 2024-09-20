@@ -9,5 +9,4 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ItemListRequestDTO {
     private String name;
-    private Boolean isAvailable;
 }

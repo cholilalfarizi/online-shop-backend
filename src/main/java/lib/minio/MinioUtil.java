@@ -46,7 +46,7 @@ public class MinioUtil {
             try {
                 minioService.delete(filename);
             } catch (Exception e) {
-                System.err.println("Error deleting file from Minio: " + e.getMessage());
+                System.err.println("Error deleting file from Minio: " + "Kesalahan Server");
             }
         }
     }

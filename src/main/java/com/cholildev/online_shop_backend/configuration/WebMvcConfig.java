@@ -19,6 +19,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         .allowedOriginPatterns("*")
         .allowedMethods("*")
         .allowedHeaders("*")
+        .exposedHeaders("Content-Disposition")
         .allowCredentials(true)
     ;
     // @formatter:on

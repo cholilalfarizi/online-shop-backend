@@ -33,13 +33,13 @@ public class Items {
 
     @Column(nullable = false)
     private Integer stock;
-    
+
     @Column(nullable = false)
     private Integer price;
-    
+
     @Column
     private Boolean isAvailable;
-    
+
     @Column
     private Date lastReStock;
 }
